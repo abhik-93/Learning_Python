@@ -1,4 +1,3 @@
-
 class Solution:
     def convert(self, s, numRows):
         if numRows == 1:
@@ -21,4 +20,4 @@ print(Solution().convert("PAYPALISHIRING", 3))
 print(Solution().convert("PAYPALISHIRING", 4))
 print(Solution().convert("A", 1))
 
-# Runtime: 56 ms in Leetcode
+# Runtime: 40 ms in Leetcode
