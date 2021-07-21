@@ -2,7 +2,7 @@ class Solution(object):
     def twoSum(self, nums, target):
         d={}
         for i,num in enumerate(nums):
-            if target-num in d:
+            if target-num in d:             # Checking if difference of tarrget and actual number present in the list is present in the dictionary. Initially it will not be present, hence will be added in the code d[num] = i
                  return [d[target-num],i]
             d[num]=i
         return []
