@@ -9,7 +9,7 @@ class Solution:
 
         for _ in s:
             pattern[row] += _
-            if row == 0 or row == numRows - 1:      # When row = 0 and when row = num - 1, we should go diagonally up; else go down
+            if row == 0 or row == numRows - 1:      # When row = 0 and when row = num - 1, we should change the direction
                 dir = -dir
             row += dir
 
