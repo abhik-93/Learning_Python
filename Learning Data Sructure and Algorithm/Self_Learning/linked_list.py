@@ -93,7 +93,13 @@ class LinkedList:
         if flag == False:
             print(f'Could not find the node {after_data}')
 
-    def remove_at(self, index):
+    def insert_new_values(self, datalist):
+        print(f'Refreshing Linked List with new data set- {datalist}')
+        self.head = None
+        for data in datalist:
+            self.insert_at_end(data)
+
+    def remove_at_index(self, index):
         if self.head is None:
             print(f'Could not remove the node at index {index}')
             return
@@ -163,10 +169,15 @@ if __name__ == '__main__':
     print('Linked List :', ll)
     print('Length of the linked list:', ll.get_length())
 
-    # # # Remove functions
-    ll.remove_at(1)
+    # # # Refreshing Linked List
+    ll.insert_new_values([10, 9, 0, 12, 112])
     print('Linked List :', ll)
-    ll.remove_by_value(11231)
+    print('Length of the linked list:', ll.get_length())
+
+    # # # Remove functions
+    ll.remove_at_index(1)
+    print('Linked List :', ll)
+    ll.remove_by_value(112)
     print('Linked List :', ll)
 
 
@@ -194,7 +205,15 @@ if __name__ == '__main__':
 # Inserted 22 after 100
 # Linked List : 4-->13-->12-->8-->11231-->100-->22-->100
 # Length of the linked list: 8
+# Refreshing Linked List with new data set- [10, 9, 0, 12, 112]
+# Inserted 10 at the beginning
+# Inserted 9 at the end
+# Inserted 0 at the end
+# Inserted 12 at the end
+# Inserted 112 at the end
+# Linked List : 10-->9-->0-->12-->112
+# Length of the linked list: 5
 # Removed node at index 1
-# Linked List : 4-->12-->8-->11231-->100-->22-->100
-# Removed node 11231
-# Linked List : 4-->12-->8-->100-->22-->100
+# Linked List : 10-->0-->12-->112
+# Removed node 112
+# Linked List : 10-->0-->12
