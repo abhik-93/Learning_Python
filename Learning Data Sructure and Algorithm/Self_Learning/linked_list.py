@@ -175,3 +175,26 @@ if __name__ == '__main__':
 
 ################## OUTPUT #####################
 
+# Created a Linked List Object
+# Length of the linked list: 0
+# Inserted 12 at the beginning
+# Linked List : 12
+# Inserted 13 at the beginning
+# Linked List : 13-->12
+# Inserted 11231 at the end
+# Linked List : 13-->12-->11231
+# Inserted 100 at the end
+# Linked List : 13-->12-->11231-->100
+# Inserted 100 at the end
+# Linked List : 13-->12-->11231-->100-->100
+# Inserted 4 at the beginning
+# Linked List : 4-->13-->12-->11231-->100-->100
+# Inserted 8 at index 3
+# Linked List : 4-->13-->12-->8-->11231-->100-->100
+# Inserted 22 after 100
+# Linked List : 4-->13-->12-->8-->11231-->100-->22-->100
+# Length of the linked list: 8
+# Removed node at index 1
+# Linked List : 4-->12-->8-->11231-->100-->22-->100
+# Removed node 11231
+# Linked List : 4-->12-->8-->100-->22-->100
