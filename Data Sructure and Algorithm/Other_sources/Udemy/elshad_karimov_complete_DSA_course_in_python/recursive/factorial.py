@@ -6,5 +6,3 @@ def factorial(n: int) -> int:
     else:
         return n * factorial(n-1)
 
-
-print(factorial(10))
