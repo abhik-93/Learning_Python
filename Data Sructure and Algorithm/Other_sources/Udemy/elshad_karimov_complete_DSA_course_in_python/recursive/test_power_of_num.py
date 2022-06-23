@@ -5,6 +5,7 @@ from power_of_num import power_of_num
 def test_power_of_num():
     assert power_of_num(12, 2) == 144
     assert power_of_num(0, 0) == 1
+    assert power_of_num(2, 4) == 16
     with pytest.raises(Exception):
         assert power_of_num(-12, 2)
         assert power_of_num(12, -2)
