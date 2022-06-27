@@ -1,4 +1,7 @@
-def flatten(arr):
+from typing import Any
+
+
+def flatten(arr: Any) -> list:
     final_arr = []
     for _ in arr:
         if isinstance(_, int):
