@@ -26,7 +26,7 @@ def create_user_sub_bindings(bind_obj: UserSubBindingsInput, db: Session = Depen
     if not _user_obj:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No user found")
 
-    _sub_obj = user_sub_bindings_crud.get_sub_by_name(db, bind_obj.subscription_name)
+    _sub_obj = subscriptions.get_sub_by_name(db, bind_obj.subscription_name)
     if not _sub_obj:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No subscription found")
 

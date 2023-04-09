@@ -8,7 +8,7 @@ from ..schemas.users import Users, DisplayUser
 router = APIRouter(tags=["Users"], prefix="/users")
 
 
-@router.get("/list", response_model=list[Users])
+@router.get("/list", response_model=list[DisplayUser])
 def get_all_users(db: Session = Depends(get_db), offset: int = 0, limit: int = 100):
     user_objs = crud_users.get_all_users(db=db, offset=offset, limit=limit)
     if not user_objs:
@@ -16,7 +16,7 @@ def get_all_users(db: Session = Depends(get_db), offset: int = 0, limit: int = 1
     return user_objs
 
 
-@router.get("/", response_model=Users)
+@router.get("/", response_model=DisplayUser)
 def get_by_email(email: str, db: Session = Depends(get_db)):
     user_obj = crud_users.get_user_by_email(db, email)
     if not user_obj:

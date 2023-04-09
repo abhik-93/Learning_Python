@@ -16,7 +16,7 @@ def get_all_subscriptions(db: Session = Depends(get_db), offset: int = 0, limit:
     return sub_objs
 
 
-@router.get("/", response_model=Subscriptions)
+@router.get("/", response_model=list[Subscriptions])
 def get_by_genre(genre: str, db: Session = Depends(get_db)):
     sub_obj = subscriptions.get_sub_by_genre(db=db, genre=genre)
     if not sub_obj:

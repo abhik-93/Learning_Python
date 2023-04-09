@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, APIRouter
 
 from src import models
 from src.database import engine
@@ -8,7 +8,7 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="News Subscription")
 
-app.include_router(router=base_router)
-app.include_router(router=user_router)
-app.include_router(router=sub_router)
-app.include_router(router=bind_router)
+list_of_routers: list[APIRouter] = [base_router, user_router, sub_router, bind_router]
+
+for _ in list_of_routers:
+    app.include_router(_)
