@@ -4,6 +4,8 @@ from sqlalchemy.orm import Session
 from ..cruds import user_sub_bindings_crud, users, subscriptions
 from ..database import get_db
 from ..schemas.user_sub_bindings_schema import UserSubBindings, UserSubBindingsInput
+from ..schemas.users import Users
+from ..utils.jwt_token import get_current_user
 
 router = APIRouter(tags=["Bindings"], prefix="/bindings")
 
@@ -21,7 +23,8 @@ def get_all_bindings(db: Session = Depends(get_db), offset: int = 0, limit: int 
 
 
 @router.post("/", response_model=UserSubBindings)
-def create_user_sub_bindings(bind_obj: UserSubBindingsInput, db: Session = Depends(get_db)):
+def create_user_sub_bindings(bind_obj: UserSubBindingsInput, db: Session = Depends(get_db),
+                             current_user: Users = Depends(get_current_user)):
     _user_obj = users.get_user_by_email(db, bind_obj.user_email)
     if not _user_obj:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No user found")

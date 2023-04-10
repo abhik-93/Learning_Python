@@ -4,6 +4,8 @@ from sqlalchemy.orm import Session
 from ..cruds import subscriptions
 from ..database import get_db
 from ..schemas.subscriptions import Subscriptions
+from ..schemas.users import Users
+from ..utils.jwt_token import get_current_user
 
 router = APIRouter(tags=["Subscriptions"], prefix="/subscriptions")
 
@@ -25,5 +27,6 @@ def get_by_genre(genre: str, db: Session = Depends(get_db)):
 
 
 @router.post("/", response_model=Subscriptions)
-def create_subscriptions(sub: Subscriptions, db: Session = Depends(get_db)):
+def create_subscriptions(sub: Subscriptions, db: Session = Depends(get_db),
+                         current_user: Users = Depends(get_current_user)):
     return subscriptions.create_subscription(db=db, new_sub=sub)

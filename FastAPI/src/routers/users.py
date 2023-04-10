@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from src.cruds import users as crud_users
 from ..database import get_db
 from ..schemas.users import Users, DisplayUser
+from ..utils.jwt_token import get_current_user
 
 router = APIRouter(tags=["Users"], prefix="/users")
 
@@ -25,5 +26,5 @@ def get_by_email(email: str, db: Session = Depends(get_db)):
 
 
 @router.post("/", response_model=DisplayUser)
-def create_user(_user: Users, db: Session = Depends(get_db)):
-    return crud_users.create_user(db=db, new_user=_user)
+def create_user(request: Users, db: Session = Depends(get_db)):
+    return crud_users.create_user(db=db, new_user=request)
