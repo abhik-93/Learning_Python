@@ -5,7 +5,7 @@ from fastapi import Depends, HTTPException, status
 from jose import jwt, JWTError
 from fastapi.security import OAuth2PasswordBearer
 
-from src.schemas.login import TokenData
+from src.schemas.token_data import TokenData
 
 SECRET_KEY: str = secrets.token_hex(64)  # Might want to store this in AWS Secrets Manager
 ALGORITHM: str = "HS256"
